@@ -1,0 +1,10 @@
+.Logo {
+  font-family: 'Questrial', sans-serif;
+  @apply w-full flex justify-center text-4xl tracking-wide text-neutral-50 pointer-events-none;
+}
+
+.NavbarContent {
+  li {
+    @apply flex items-center gap-3 w-full p-4 hover:bg-neutral-50/5 rounded-xl cursor-pointer;
+  }
+}
