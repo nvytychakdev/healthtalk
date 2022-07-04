@@ -5,6 +5,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
       "@styles/*": ["./styles/*"],
+      "@hooks/*": ["./hooks/*"],
       "@components/*": ["./components/*"]
     },
     "allowJs": true,

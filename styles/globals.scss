@@ -20,3 +20,27 @@ a {
 * {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  margin: 4px;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #333333;
+
+  &:hover {
+    background: #464646;
+  }
+}
+
+::-webkit-scrollbar-corner{
+  background: transparent;
+}

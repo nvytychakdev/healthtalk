@@ -1,3 +1,6 @@
+import { useMantineTheme } from "@mantine/core";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 import {
   CalendarEvent,
@@ -8,10 +11,12 @@ import {
 import styles from "../styles/Layout.module.scss";
 
 const Logo: FC = () => {
+  const theme = useMantineTheme();
+
   return (
     <div className={styles.Logo}>
       health
-      <span className="text-emerald-400">talk</span>
+      <span style={{ color: theme.colors.main[1] }}>talk</span>
     </div>
   );
 };
@@ -26,20 +31,34 @@ const Header: FC = () => {
 };
 
 const NavbarContent: FC = () => {
+  const router = useRouter();
+
   return (
     <ul className={styles.NavbarContent}>
-      <li>
-        <LayoutDashboard /> Dashboard
-      </li>
-      <li>
-        <Users /> Patients
-      </li>
-      <li>
-        <Notes /> Notes
-      </li>
-      <li>
-        <CalendarEvent /> Calendar
-      </li>
+      <Link href="/">
+        <li className={router.pathname === "/" ? styles.ActiveLink : ""}>
+          <LayoutDashboard /> Dashboard
+        </li>
+      </Link>
+      <Link href="/patients">
+        <li
+          className={router.pathname === "/patients" ? styles.ActiveLink : ""}
+        >
+          <Users /> Patients
+        </li>
+      </Link>
+      <Link href="/notes">
+        <li className={router.pathname === "/notes" ? styles.ActiveLink : ""}>
+          <Notes /> Notes
+        </li>
+      </Link>
+      <Link href="/calendar">
+        <li
+          className={router.pathname === "/calendar" ? styles.ActiveLink : ""}
+        >
+          <CalendarEvent /> Calendar
+        </li>
+      </Link>
     </ul>
   );
 };
@@ -62,9 +81,9 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div className="h-screen flex">
       <Navbar />
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col overflow-auto">
         <Header />
-        <div>{children}</div>
+        <div className="flex-1 overflow-auto">{children}</div>
       </div>
     </div>
   );

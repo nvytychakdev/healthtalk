@@ -20,6 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme={{
           /** Put your mantine theme override here */
           colorScheme: "dark",
+          colors: {
+            main: ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"],
+          },
         }}
       >
         <Component {...pageProps} />
